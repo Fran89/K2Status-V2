@@ -59,8 +59,9 @@ Import/Export Capability: Is fully EXPERIMENTAL, use at your own risk.
 2. ~~Test using multiple stations~~ (DONE).
 3. ~~Improve Import/Export Communications.~~
 4. ~~Add the ability to graph data.~~
-5. Add the ability to request information from the Rock Family of instruments.
-6. Add the ability to request information from the telephone modem instruments.
+5. Control graph time span (currently all is presented)
+6. Add the ability to request information from the Rock Family of instruments.
+7. Add the ability to request information from the telephone modem instruments.
 
 
 =============
