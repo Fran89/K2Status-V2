@@ -4,9 +4,8 @@ A K2/ETNA Status Monitoring Program for Earthworm
 
 This K2 Status program is compiled for 64bit Intel, but can be compiled easily 
 in any 32bit computer. It has been written in QT and C++ in order to have full 
-compatibility for other platforms. The 32Bit statically link version availible
-in the master branch for a previous version (I will update soon). A fully naitive 
-64bit (dinamically linked) version is provided and run in the newest Ubuntu distros. 
+compatibility for other platforms. A fully naitive 64bit (dinamically linked) 
+version is provided and run in the newest Ubuntu distros. 
 
 ============
 ####Features:
@@ -58,9 +57,11 @@ Import/Export Capability: Is fully EXPERIMENTAL, use at your own risk.
 ####To Do:
 1. Work out ~~various~~ bugs (Most are squashed).
 2. ~~Test using multiple stations~~ (DONE).
-3. Improve Import/Export Communications.
-4. Add the ability to graph data.
+3. ~~Improve Import/Export Communications.~~
+4. ~~Add the ability to graph data.~~
 5. Add the ability to request information from the Rock Family of instruments.
+6. Add the ability to request information from the telephone modem instruments.
+
 
 =============
 ####Log File:
