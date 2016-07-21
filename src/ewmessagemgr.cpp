@@ -37,8 +37,9 @@ void EWMessageMgr::proccess_UDPpacket(PACKET packet, QByteArray data)
             // Finish Extraction
 
             // Update UI
-            emit exportK2Status(MyK2Head, MyK2Stat, mutex);
-            mutex->lock();
+            if(mutex->tryLock(5000))
+                emit exportK2Status(MyK2Head, MyK2Stat, mutex);
+
 
             // Destroy Structures
             delete[] MyK2Head;
@@ -59,8 +60,9 @@ void EWMessageMgr::proccess_UDPpacket(PACKET packet, QByteArray data)
             // Finish Extraction
 
             // Update UI
-            emit exportK2Status2(MyK2Head,MyK2Stat2, mutex);
-            mutex->lock();
+            if(mutex->tryLock(5000))
+                emit exportK2Status2(MyK2Head,MyK2Stat2, mutex);
+
 
             // Destroy Structures
             delete[] MyK2Head;
@@ -115,8 +117,8 @@ void EWMessageMgr::proccess_UDPpacket(PACKET packet, QByteArray data)
             // Finish Extraction
 
             // Update UI
-            emit exportK2HeaderS(MyK2Head, MyK2HDS, mutex);
-            mutex->lock();
+            if(mutex->tryLock(5000))
+                emit exportK2HeaderS(MyK2Head, MyK2HDS, mutex);
 
             delete[] MyK2Head;
             delete[] MyK2HDS;

@@ -311,8 +311,8 @@ StaInfo* StnInfo::stationIndex(K2INFO_HEADER *header)
     if (!Stations.contains(header->sta)) {
         query->Network = header->net;
         Stations[header->sta] = query;
-        emit stationAdded(temp);
-        temp->lock();
+        if(temp->tryLock(5000))
+            emit stationAdded(temp);
         return Stations.value(header->sta);
     } else {
         if (query->Network.isEmpty())
@@ -335,8 +335,8 @@ StaInfo* StnInfo::stationIndex(QDomElement station){
         query->Network = station.attribute("network");
         query->Serial = station.attribute("serial").toInt();
         Stations[station.attribute("name")] = query;
-        emit stationAdded(temp);
-        temp->lock();
+        if(temp->tryLock(5000))
+            emit stationAdded(temp);
         return Stations.value(station.attribute("name"));
     } else {
         return Stations.value(station.attribute("name"));
@@ -350,8 +350,8 @@ StaInfo* StnInfo::stationIndex(QString station, QString network){
     if (!Stations.contains(station)) {
         query->Network = network;
         Stations[station] = query;
-        emit stationAdded(temp);
-        temp->lock();
+        if (temp->tryLock(5000))
+            emit stationAdded(temp);
         emit stationXmlEvt(station);
         return Stations.value(station);
     } else {

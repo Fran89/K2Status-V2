@@ -2,6 +2,7 @@
 #define K2UDPSOCK_H
 #include <QUdpSocket>
 #include <QByteArray>
+#include <QDebug>
 #include "ewmessagemgr.h"
 #include "include/ew_packet.h"
 
