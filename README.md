@@ -19,11 +19,13 @@ version is provided and run in the newest Ubuntu distros.
 
 1. Update Time:
   * Green: Less than 5min.
-  * Dark Green: 5min and 30min
-  * Yellow: 30min and 6 hr
-  * Dark Yellow: 6hr and 12 hr
-  * Red: 12hr and 24hr
-  * Dark Red: More than 24 hrs
+  * Light Green: 5min and 10min
+  * Green Yellow: 10min and 30min
+  * Light Yellow: 30min and 1 hr
+  * Dark Yellow: 1hr and 6 hr
+  * Red Yellow: 6hr and 12hr
+  * Light Red: 12hr and 24hr
+  * Red: More than 24 hrs
 2. Time Src:
   * Green only on GPS
   * Red on RTC, Keyboard and (?)
@@ -33,9 +35,13 @@ version is provided and run in the newest Ubuntu distros.
 4. Temperature:
   * Red on 45C and up
 5. Hardware, Battery Status and Fault Code:
-  * Green if OK or Charging, Red otherwise
+  * Green if OK or Charging
+  * Blue if Not Charging and more than 12V (External batt)
+  * Red otherwise
 6. Disk Space:
   * Red if space goes under 10 Mb
+7. Number of Events:
+  * Red if more than 20 Events
 
 =============
 ####Instructions:
@@ -48,10 +54,8 @@ In EW:
 In K2Status:
 
 1. In the Connections Menu:
-2. Put the IP of the interface you are to recieve the UDP packets containing the K2 Info (ususally the ip of the computer). 
+2. Put the IP of the interface you are to recieve the UDP packets containing the K2 Info (or 0.0.0.0 which is self at all interfaces). 
 3. That's it.
-
-Import/Export Capability: Is fully EXPERIMENTAL, use at your own risk.
 
 =============
 ####To Do:
