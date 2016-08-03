@@ -56,6 +56,8 @@ private slots:
     void disconnectUDP();
     void nothing();
     void onClicked(QPoint);
+    void onLClicked(int);
+    void keyPressEvent(QKeyEvent* key);
     void volt();
     void temp();
 

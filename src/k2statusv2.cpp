@@ -85,15 +85,17 @@ K2StatusV2::K2StatusV2(QWidget *parent) :
     MyK2Graph = new K2Graph(false,this);
     MyK2Graph->setStations(MyStnInfo);
     ui->MyMetadataTableView->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->MyMetadataTableView->horizontalHeader()->setSectionsClickable(true);
     connect(ui->actionGraph,SIGNAL(triggered(bool)),MyK2Graph,SLOT(show()));
     connect(MyStnInfo,SIGNAL(stationsUpdated()),MyK2Graph,SLOT(stnupdated()));
     connect(ui->MyMetadataTableView,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(onClicked(QPoint)));
+    connect(ui->MyMetadataTableView->horizontalHeader(),SIGNAL(sectionClicked(int)),this,SLOT(onLClicked(int)));
 
 
     // Status
     status = new QLabel;
     ui->statusBar->addWidget(status);
-    
+
 }
 
 K2StatusV2::~K2StatusV2()
@@ -183,7 +185,7 @@ void K2StatusV2::nothing(){
 void K2StatusV2::resizeTable(){
     ui->MyMetadataTableView->resizeColumnsToContents();
     ui->MyMetadataTableView->repaint();
-    this->setFixedWidth(ui->MyMetadataTableView->horizontalHeader()->length()+45);
+    //this->setFixedWidth(ui->MyMetadataTableView->horizontalHeader()->length()+45);
 }
 
 // Add a station
@@ -199,7 +201,7 @@ void K2StatusV2::addStation(){
     MyK2Graph->stnupdated();
 }
 
-// On clicked
+// On right clicked
 void K2StatusV2::onClicked(QPoint index){
     int row;
     row = ui->MyMetadataTableView->rowAt(index.y());
@@ -209,6 +211,18 @@ void K2StatusV2::onClicked(QPoint index){
         context.exec(QCursor::pos());
     }
     return;
+}
+
+//On left clicked
+void K2StatusV2::onLClicked(int index){
+    appendToDebugBrowser("What is:" + QString::number(index));
+    if(index == 11)
+        ui->MyMetadataTableView->hideColumn(index);
+}
+
+void K2StatusV2::keyPressEvent(QKeyEvent * key){
+    if(key->key() == Qt::Key_Escape)
+        ui->MyMetadataTableView->clearSelection();
 }
 
 void K2StatusV2::volt(){

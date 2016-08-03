@@ -15,6 +15,7 @@ K2Graph::K2Graph(bool mssm, QWidget *parent) :
     }
     else
         ui->comboBox->clear();
+    this->setWindowTitle("Station Graphs");
 }
 
 K2Graph::~K2Graph()
@@ -73,9 +74,9 @@ void K2Graph::showVGraph(QString sta){
 
         // Set Axis Lable
         ui->Graph->xAxis->setLabel("Date (GMT)");
-        ui->Graph->xAxis->setAutoTickStep(false);
-        ui->Graph->xAxis->setTickStep(86400);
-        ui->Graph->xAxis->setSubTickCount(1);
+        ui->Graph->xAxis->setAutoTickStep(true);
+        //ui->Graph->xAxis->setTickStep(86400);
+        //ui->Graph->xAxis->setSubTickCount(1);
         ui->Graph->yAxis->setLabel("Voltage (V)");
 
         //ui->Graph->graph()->addData(time, Archive.at(idx).Voltage);
@@ -128,9 +129,9 @@ void K2Graph::showTGraph(QString sta){
 
         // Set Axis Lable
         ui->Graph->xAxis->setLabel("Date (GMT)");
-        ui->Graph->xAxis->setAutoTickStep(false);
-        ui->Graph->xAxis->setTickStep(86400);
-        ui->Graph->xAxis->setSubTickCount(1);
+        ui->Graph->xAxis->setAutoTickStep(true);
+        //ui->Graph->xAxis->setTickStep(86400);
+        //ui->Graph->xAxis->setSubTickCount(1);
         ui->Graph->yAxis->setLabel("Temperature (C)");
 
         //ui->Graph->graph()->addData(time, Archive.at(idx).Voltage);

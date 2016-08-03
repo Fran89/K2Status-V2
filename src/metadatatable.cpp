@@ -170,7 +170,9 @@ QVariant MetadataTable::data(const QModelIndex &index, int role) const
                     return QBrush(Qt::white);
                 if (currentSta->LatestBTStatus == 1)
                     return QBrush(Qt::green);
-                if (currentSta->LatestBTStatus == 0)
+                if (currentSta->LatestBTStatus == 0 && currentSta->LatestVoltage >= 12)
+                    return QBrush(Qt::blue);
+                if (currentSta->LatestBTStatus == 0 && currentSta->LatestVoltage < 12)
                     return QBrush(Qt::red);
             case Tfac:
                 if (currentSta->LatestFaultC.isEmpty() || currentSta->LatestFaultOk == 3)
@@ -185,7 +187,7 @@ QVariant MetadataTable::data(const QModelIndex &index, int role) const
                 if (currentSta->LatestNevent == -1)
                     return QBrush(Qt::white);
                 else {
-                    if (currentSta->LatestNevent > 100)
+                    if (currentSta->LatestNevent >= 20)
                         return QBrush(Qt::red);
                     else
                         return QBrush(Qt::green);

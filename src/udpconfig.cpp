@@ -19,6 +19,7 @@ UDPConfig::UDPConfig(QWidget *parent) :
     ui->UDPIP->setText(localhost.toString());
     ui->UDPPort->setText("16005");
     ui->folderName->setText(QDir::home().path());
+    this->setWindowTitle("UDP Configuration");
 }
 
 UDPConfig::~UDPConfig()

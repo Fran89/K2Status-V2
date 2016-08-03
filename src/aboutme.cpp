@@ -6,6 +6,7 @@ AboutMe::AboutMe(QWidget *parent) :
     ui(new Ui::AboutMe)
 {
     ui->setupUi(this);
+    this->setWindowTitle("About Me");
 }
 
 AboutMe::~AboutMe()
